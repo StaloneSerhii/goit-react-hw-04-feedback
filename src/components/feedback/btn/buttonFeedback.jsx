@@ -1,18 +1,19 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { BuntonStatistics, BtnGroup } from './btn.styled';
 
 export const FeedbackOptions = ({ onLeaveFeedback, options }) => (
   <BtnGroup>
     {options.map((option, index) => (
-      <BuntonStatistics type="button" onClick={onLeaveFeedback} key={index}>
+      <BuntonStatistics type="button"  onClick={() => onLeaveFeedback(option)} key={index}>
         {option}
       </BuntonStatistics>
     ))}
   </BtnGroup>
 );
 
+
 FeedbackOptions.propTypes = {
-  options: propTypes.array.isRequired,
-  onLeaveFeedBack: propTypes.func.isRequired,
+  options: PropTypes.array.isRequired,
+  onLeaveFeedBack: PropTypes.func,
 };
